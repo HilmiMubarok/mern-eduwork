@@ -4,54 +4,111 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
     <title>Hilmi Mubarok</title>
-    
+    <style>
+        * { font-family: 'Gotham', sans-serif; color: #FFF; padding: 0; margin: 0;}
+        html { background-color: #082032; }
+        img {
+            object-fit: cover;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            width: 80%;
+        }
+        .profile {
+            text-align: center;
+        }
+        .profile p { margin-top: 10px; }
+        .row {
+            display: table;
+            width: 100%;
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+        .col { display: table-cell; text-align: center; }
+        section { text-align: left; padding: 10px; }
+        section p { margin-bottom: 10px; }
+        .hobi ul { list-style-type: none; padding: 10px; }
+        form label, form input, form textarea { margin-bottom: 10px; display: block;}
+        form button {
+            padding: 5px;
+            width: 70px;
+            background-color: rgb(19, 226, 36);
+            border: none;
+            border-radius: 5px;
+            color: #000;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, I'm Hilmi Mubarok</h1>
-    <p>I'm Passionate about web development from Indonesia</p>
-    <hr>
-    <img src="profile.JPG" width="200">
-    <hr>
-    <p>Hobi</p>
-    <ul>
-        <li>Main Game</li>
-        <li>Belajar Pemrograman</li>
-    </ul>
-    <p>Skilss</p>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>HTML</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Bootstrap</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>PHP</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>MySql</td>
-            </tr>
-        </tbody>
-    </table>
-    <p>Contact</p>
-    <form action="">
-        <label>Email</label>
-        <input type="email"> <br>
-        <label>Message</label>
-        <textarea cols="30" rows="10"></textarea> <br>
-        <button type="submit">Send</button>
-    </form>
+    <div class="container">
+        <div class="profile">
+            <img src="profile.JPG" width="200">
+            <h1>Hilmi Mubarok</h1>
+            <p>I'm Passionate about web development from Indonesia</p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <section class="hobi">
+                    <p>Hobi</p>
+                    <ul>
+                        <li>Main Game</li>
+                        <li>Belajar Pemrograman</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="col">
+                <section class="skills">
+                    <p>Skilss</p>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>HTML</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Bootstrap</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>PHP</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>MySql</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            <div class="col">
+                <section class="contact">
+                    <p>Contact</p>
+                    <form action="">
+                        <label>Email</label> 
+                        <input type="email"> 
+                        <label>Message</label> 
+                        <textarea cols="30" rows="10"></textarea> 
+                        <button type="submit">Send</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
