@@ -1,0 +1,15 @@
+* { font-family: 'Gotham', sans-serif; color: #FFF; padding: 0; margin: 0;}
+.bg-dark { background-color: #082032 !important; }
+section {
+    background-color: #082032;
+    min-height: 500px;
+}
+section#about, section#contact {
+    background-color: #0b253a;
+}
+img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
