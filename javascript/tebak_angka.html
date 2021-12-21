@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Tebak Angka</title>
 </head>
+
 <body>
-    <script src="script.js"></script>
+    <script type="text/javascript">
+        const data = {
+            score: {
+                player1: 0,
+                player2: 0
+            },
+            input: {
+                player1: null,
+                player2: null
+            },
+            msg: null
+        }
+
+        const getWinner = () => {
+
+            if (data.score.player1 > data.score.player2) {
+                return data.msg = "Player 1 Menang Dengan Skor " + data.score.player1 + "-" + data.score.player2
+            } else if (data.score.player2 > data.score.player1) {
+                return data.msg = "Player 2 Menang Dengan Skor " + data.score.player2 + "-" + data.score.player1
+            } else {
+                return data.msg = "SERI Dengan Skor " + data.score.player1 + "-" + data.score.player2
+            }
+        }
+
+        const validation = (p1, p2) => {
+
+            if (isNaN(p1) || isNaN(p2)) {
+                data.msg = "Harus Angka"
+                return false
+            } else {
+                if (p1 <= 0 || p2 <= 0) {
+                    data.msg = "Angka tidak boleh lebih kecil dari 1"
+                    return false
+                } else if (p1 > 3 || p2 > 3) {
+                    data.msg = "Angka tidak boleh lebih besar dari 3"
+                    return false
+                } else if (p1 === p2) {
+                    data.msg = "Tidak Boleh Sama"
+                    return false
+                } else {
+                    data.input.player1 = p1
+                    data.input.player2 = p2
+                    return true
+                }
+            }
+        }
+
+        function resetGame() {
+            const msg = "Ulang Permainan ?"
+            if (confirm(msg)) {
+                playGame()
+            } else {
+                return null
+            }
+        }
+
+        const playGame = () => {
+            const player1 = prompt("Masukkan Angka Player 1")
+            const player2 = prompt("Masukkan Angka Player 2")
+
+            if (validation(player1, player2)) {
+                return getResult(player1, player2)
+            } else {
+                alert(data.msg)
+                resetGame()
+            }
+        }
+
+        function getResult(p1, p2) {
+            const result = Math.floor((Math.random() * 3) + 1)
+
+            if (p1 == result && p2 != result) {
+
+                alert("Player 1 Menang")
+                data.score.player1++
+
+            } else if (p1 != result && p2 == result) {
+
+                alert("Player 2 Menang")
+                data.score.player2++
+
+            } else {
+                alert("SERI")
+            }
+        }
+        for (let round = 1; round <= 5; round++) {
+            alert("Round " + round)
+            playGame()
+        }
+
+        alert(getWinner())
+    </script>
 </body>
+
 </html>
