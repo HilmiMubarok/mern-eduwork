@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Task</title>
+  </head>
+  <body>
+    <script>
+        let inputPlayer1;
+        let inputPlayer2;
+        let randomNumber = Math.floor(Math.random() * 4);
+        let scoreTotal;
+        let score1 = 0;
+        let score2 = 0;
+
+        // VALIDATION INPUT
+        function validationInputP1() {
+            inputPlayer1 = Number(prompt(`PLAYER 1 - masukan angka : \n antara 0-3`));
+            if (inputPlayer1 < 0 || inputPlayer1 > 3) {
+            alert(`Tolong Masukan Angka yang seharusnya`);
+            validationInputP1();
+            }
+        }
+        function validationInputP2() {
+            inputPlayer2 = Number(prompt(`PLAYER 2 - masukan angka : \n antara 0-3`));
+            if (inputPlayer2 < 0 || inputPlayer2 > 3) {
+            alert(`Tolong Masukan Angka yang seharusnya`);
+            validationInputP2();
+            }
+        }
+
+        //   RANDOM NUMBER
+        function numberRandom() {
+            let player1 = inputPlayer1;
+            let player2 = inputPlayer2;
+            if (player1 == randomNumber && player2 == randomNumber) {
+            alert(`Keduanya benar SERI !! \n Angkanya adalah ${randomNumber}`);
+            } else if (player1 == randomNumber && player2 !== randomNumber) {
+            alert(`Player 1 WIN !!! \n Angkanya adalah ${randomNumber}`);
+            score1++;
+            } else if (player1 !== randomNumber && player2 == randomNumber) {
+            alert(`Player 2 WIN !!! \n Angkanya adalah ${randomNumber}`);
+            score2++;
+            } else {
+            alert(`Tidak ada yang benar SERI !!! \n Angkanya adalah ${randomNumber}`);
+            }
+        }
+
+        // SCORE BOARD
+        function totalScore(a, b) {
+            let total = () => {
+            alert(`PLAYER 1 = ${a} \n PLAYER 2 = ${b}`);
+            if (a == b) {
+                alert(`TIDAK ADA JUARANYA !!!`);
+            } else if (a > b) {
+                alert(`P1 ADALAH JUARANYA !!!`);
+            } else {
+                alert(`P2 ADALAH JUARANYA !!! `);
+            }
+            };
+
+            return total();
+        }
+
+        //  MAIN FUNCTION
+        function quiz() {
+            validationInputP1();
+            validationInputP2();
+            numberRandom();
+        }
+        for (let i = 1; i <= 2; i++) {
+            alert(`Round ke ${i}`);
+            quiz();
+        }
+
+        //  HASIL AKHIR
+        totalScore(score1, score2);
+    </script>
+  </body>
+</html>
