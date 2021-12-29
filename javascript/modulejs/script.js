@@ -10,5 +10,3 @@ const table = new Table({
 
 const app = document.getElementById("app")
 table.render(app)
-
-console.log(table)
