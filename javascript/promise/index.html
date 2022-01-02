@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <link rel="stylesheet" href="https://pagecdn.io/lib/font-awesome/5.10.0-11/css/all.min.css" integrity="sha256-p9TTWD+813MlLaxMXMbTA7wN/ArzGyW/L7c5+KkjOkM=" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-white" id="body">
+
+    <header class="w-full container mx-auto">
+        <div class="flex flex-col items-center py-12">
+            <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="#">
+                TASK PROMISE
+            </a>
+            <p class="text-lg text-gray-600">
+                Get data from newsapi.org
+            </p>
+        </div>
+    </header>
+
+
+    <div class="container mx-auto flex flex-wrap py-6">
+
+        <input type="text" class="p-5 bg-white rounded-lg shadow w-full mb-5" placeholder="Cari Berita Trending" onkeyup="getData(this.value)" id="search">
+
+        <section class="w-full flex flex-col items-between px-3" id="res">
+
+            
+
+        </section>
+
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
