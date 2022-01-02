@@ -9,17 +9,17 @@ const getData = (isSearch, url = `https://newsapi.org/v2/top-headlines?country=i
         document.getElementById('res').innerHTML = loader()
         axios.get(url + `&q=` + isSearch)
             .then(function (response) {
-                displayData(response.data.articles)
+                displayData(response.data)
             })
             .catch(function (error) {
                 console.log(error);
             })
-    } else {
-        // jika tidak ada value input get all data
-        document.getElementById('res').innerHTML = loader()
-        axios.get(url)
+        } else {
+            // jika tidak ada value input get all data
+            document.getElementById('res').innerHTML = loader()
+            axios.get(url)
             .then(function (response) {
-                displayData(response.data.articles)
+                displayData(response.data)
             })
             .catch(function (error) {
                 console.log(error);
@@ -40,26 +40,32 @@ const loader = () =>{
 
 const displayData = (data)=> {
     let result = ''
-    data.forEach((data) => {
-        result +=
-        `
-        <article class="flex flex-col lg:flex-row  items-start shadow shadow-xl my-4">
-            <a href="#" class="hover:opacity-75">
-                <img src="`+ data.urlToImage +`">
-            </a>
-            <div class="bg-white flex flex-col justify-start p-6">
-                <a href="`+ data.url +`" class="text-3xl font-bold hover:text-gray-700 pb-4">`+ data.title +`</a>
-                <p href="#" class="text-sm pb-3">
-                    By <a href="#" class="font-semibold hover:text-gray-800">`+ data.author +`</a>, Published on `+ data.publishedAt +`
-                </p>
-                <a href="#" class="pb-6">`+ data.description +`</a>
-                <a href="`+ data.url +`" class="uppercase text-gray-800 hover:text-black">Continue Reading <i
-                        class="fas fa-arrow-right"></i></a>
-            </div>
-        </article>
-        `;
+    if (data.totalResults < 1) {
+        result = `<h3 class="text-center">Artikel Tidak Ditemukan</h3>`
         document.getElementById('res').innerHTML = result;
-    })
+    } else {
+
+        data.articles.forEach((data) => {
+            result +=
+            `
+            <article class="flex flex-col lg:flex-row  items-start shadow shadow-xl my-4">
+                <a href="#" class="hover:opacity-75">
+                    <img src="`+ data.urlToImage +`">
+                </a>
+                <div class="bg-white flex flex-col justify-start p-6">
+                    <a href="`+ data.url +`" class="text-3xl font-bold hover:text-gray-700 pb-4">`+ data.title +`</a>
+                    <p href="#" class="text-sm pb-3">
+                        By <a href="#" class="font-semibold hover:text-gray-800">`+ data.author +`</a>, Published on `+ data.publishedAt +`
+                    </p>
+                    <a href="#" class="pb-6">`+ data.description +`</a>
+                    <a href="`+ data.url +`" class="uppercase text-gray-800 hover:text-black">Continue Reading <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            `;
+            document.getElementById('res').innerHTML = result;
+        })
+    }
     
 }
 
